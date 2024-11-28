@@ -1,7 +1,7 @@
 import CustomInput from './CustomInput/customInput';
 import AddNewProduct from './AddNewProductForm/addNewProduct';
 import CustomImageUpload from './ImageUpload/imageUpload';
-import ProductFiltration from "./ProductFiltration/productFiltration";
+import ProductFiltration from "./Products/filtration";
 import ProductItem from "./Products/productItem";
 import ProductList from "./Products/productList"
 

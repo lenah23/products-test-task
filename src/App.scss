@@ -1,0 +1,19 @@
+@import 'styles/_mixins.scss';
+@import 'styles/_variables.scss';
+
+.App {
+  @include flexStyles(flex, column, space-between, flex-start);
+
+  & .main-section {
+    flex: 1;
+    @include sizes(100%, 60vh);
+    min-height: 60vh;
+    @include flexStyles(flex, row, space-between, center);
+  }
+
+  & .add-section {
+    flex: 1;
+    @include sizes(100%, 40vh);
+    min-height: 40vh;
+  }
+}

@@ -1,0 +1,25 @@
+@import '../../styles/mixins';
+@import '../../styles/_variables.scss';
+
+.product-item {
+  border-radius: 8px;
+  border: $dark-grey;
+  padding: 20px;
+  @include flexStyles(flex, row, space-between, flex-start);
+  gap: 20px;
+  background: $light-grey;
+
+  &__img-cont {
+    @include sizes(100px, 100px);
+
+    .product-item__img {
+      @include sizes(100%, 100%);
+      object-fit: contain;
+    }
+  }
+
+  &__content {
+    @include flexStyles(flex, column, flex-start, flex-start);
+    gap: 10px;
+  }
+}

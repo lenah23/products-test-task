@@ -4,3 +4,8 @@ export enum InputTypeEnum {
   email = 'email',
   number = 'number',
 }
+
+export enum ProductCurrencyEnum {
+  usd = 'USD',
+  uah = 'UAH',
+}
