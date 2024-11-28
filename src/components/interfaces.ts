@@ -9,3 +9,11 @@ export enum ProductCurrencyEnum {
   usd = 'USD',
   uah = 'UAH',
 }
+
+export interface IProduct {
+  description: string;
+  id: number;
+  image: string;
+  name: string;
+  price: number;
+}

@@ -1,6 +1,16 @@
 @import '../../styles/mixins';
 @import '../../styles/_variables.scss';
 
+.products{
+  padding: 30px;
+}
+
+.products-list{
+   @include flexStyles(flex, row, space-between, flex-start);
+   flex-wrap: wrap;
+   gap: 50px;
+}
+
 .product-item {
   border-radius: 8px;
   border: $dark-grey;

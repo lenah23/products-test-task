@@ -9,11 +9,24 @@
     @include sizes(100%, 60vh);
     min-height: 60vh;
     @include flexStyles(flex, row, space-between, center);
+
+    &__filtration{
+        border: 1px solid $light-grey;
+        height: 100%;
+        width: 40%;
+    }
+
+    &__products{
+        border: 1px solid $light-grey;
+        height: 100%;
+        width: 60%;
+    }
   }
 
   & .add-section {
     flex: 1;
     @include sizes(100%, 40vh);
     min-height: 40vh;
+    border: 1px solid $light-grey;
   }
 }

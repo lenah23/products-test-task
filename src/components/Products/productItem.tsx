@@ -25,7 +25,7 @@ const images = {
 };
 
 interface IProps {
-  imgName: keyof typeof images;
+  imgName: string;
   productName: string;
   productPrice: number;
   productCurrency: ProductCurrencyEnum;
@@ -39,12 +39,16 @@ const ProductItem: React.FC<IProps> = (props) => {
     productPrice,
     productCurrency,
     productDescription,
-    } = props;
-    
+  } = props;
+
   return (
     <div className={styles['product-item']}>
       <div className={styles['product-item__img-cont']}>
-        <img className={styles['product-item__img']} src={images[imgName]} />
+        <img
+          className={styles['product-item__img']}
+          // @ts-ignore
+          src={images[imgName]}
+        />
       </div>
       <div className={styles['product-item__content']}>
         <div className={styles['product-item__name']}>{productName}</div>
