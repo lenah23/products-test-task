@@ -1,0 +1,33 @@
+.radio-container {
+  margin-bottom: 1rem;
+}
+
+.label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.radio-label {
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.radio-input {
+  margin-right: 0.5rem;
+}
+
+.input-error {
+  color: red;
+  font-size: 0.875rem;
+}
+
+.error {
+  border-color: red;
+}
