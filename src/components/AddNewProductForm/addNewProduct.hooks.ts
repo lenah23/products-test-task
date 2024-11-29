@@ -21,10 +21,14 @@ const UseAddNewProductHooks = () => {
   } = useForm<FieldValues | IProductFields>();
 
   const onSubmit = (data: FieldValues) => {
+    const mapImageName = (fileName: string) => {
+      const fileNumber = fileName.split('.')[0]; 
+      return `img${fileNumber}`;
+    };
     const payload = {
       name: data?.productName,
       price: data?.productPrice,
-      image: data?.image?.name,
+      image: data?.image?.name ? mapImageName(data.image.name) : '',
       description: data?.productDescription,
     };
 
