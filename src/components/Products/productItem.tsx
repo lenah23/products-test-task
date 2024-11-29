@@ -28,7 +28,7 @@ interface IProps {
   imgName: string;
   productName: string;
   productPrice: number;
-  productCurrency: ProductCurrencyEnum;
+  productCurrency: ProductCurrencyEnum | undefined;
   productDescription: string;
 }
 

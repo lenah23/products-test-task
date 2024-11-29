@@ -1,7 +1,4 @@
-import {
-  createApi,
-  fetchBaseQuery,
-} from '@reduxjs/toolkit/query/react';
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { IProduct } from '../../components/interfaces';
 
 export const productsApi = createApi({
@@ -23,7 +20,7 @@ export const productsApi = createApi({
         return {
           url: `/products`,
           method: 'POST',
-          body: payload
+          body: payload,
         };
       },
       invalidatesTags: ['products'],
@@ -31,4 +28,5 @@ export const productsApi = createApi({
   }),
 });
 
-export const { useGetAllProductsListQuery, useAddNewProductMutation } = productsApi;
+export const { useGetAllProductsListQuery, useAddNewProductMutation } =
+  productsApi;

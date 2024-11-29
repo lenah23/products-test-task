@@ -1,6 +1,6 @@
-import { IProduct, ProductCurrencyEnum } from "../interfaces";
-import ProductItem from "./productItem";
-import styles from "./products.module.scss";
+import { IProduct, ProductCurrencyEnum } from '../interfaces';
+import ProductItem from './productItem';
+import styles from './products.module.scss';
 
 interface IProps {
   productsList: IProduct[] | undefined;
@@ -8,7 +8,7 @@ interface IProps {
 
 const ProductList: React.FC<IProps> = (props) => {
   return (
-    <div className={styles["products-list"]}>
+    <div className={styles['products-list']}>
       {props?.productsList?.map((item: IProduct) => {
         return (
           <ProductItem
@@ -16,7 +16,7 @@ const ProductList: React.FC<IProps> = (props) => {
             imgName={item?.image}
             productName={item?.name}
             productPrice={item?.price}
-            productCurrency={ProductCurrencyEnum.usd}
+            productCurrency={item?.currency}
             productDescription={item?.description}
           />
         );
