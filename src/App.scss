@@ -12,14 +12,15 @@
 
     &__filtration{
         border: 1px solid $light-grey;
-        height: 100%;
+        height: inherit;
         width: 40%;
     }
 
     &__products{
         border: 1px solid $light-grey;
-        height: 100%;
+        height: inherit;
         width: 60%;
+        overflow: auto;
     }
   }
 
@@ -28,5 +29,6 @@
     @include sizes(100%, 40vh);
     min-height: 40vh;
     border: 1px solid $light-grey;
+    @include flexStyles(flex, row, center, center);
   }
 }

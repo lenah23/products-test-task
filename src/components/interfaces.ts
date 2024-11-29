@@ -12,8 +12,21 @@ export enum ProductCurrencyEnum {
 
 export interface IProduct {
   description: string;
-  id: number;
+  id?: number;
   image: string;
   name: string;
   price: number;
+  currency?: ProductCurrencyEnum
+}
+
+export enum ButtonTypeEnum {
+  button = "button",
+  reset = "reset",
+  submit = "submit",
+}
+
+export enum SortingEnum {
+  button = "button",
+  reset = "reset",
+  submit = "submit",
 }

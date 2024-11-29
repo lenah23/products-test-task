@@ -1,0 +1,6 @@
+@import "../../styles/mixins";
+@import "../../styles/variables";
+
+.create-product__form{
+    @include sizes(500px, fit-content);
+}

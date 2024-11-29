@@ -1,12 +1,13 @@
-import UseProductHooks from './productHooks';
-import ProductList from './productList';
+import UseProductHooks from "./productHooks";
+import ProductList from "./productList";
 import styles from "./products.module.scss";
 
 const Products: React.FC = () => {
-  const { productsList } = UseProductHooks();
+  const { products } = UseProductHooks();
+
   return (
     <div className={styles["products"]}>
-      <ProductList productsList={productsList} />
+      <ProductList productsList={products} />
     </div>
   );
 };

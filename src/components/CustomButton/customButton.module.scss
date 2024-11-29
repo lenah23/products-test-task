@@ -1,0 +1,41 @@
+@import "../../styles/mixins";
+@import "../../styles/variables";
+
+.custom-button {
+    background-color: $button-color;
+    color: $white;
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    display: inline-block;
+  
+    // Hover state
+    &:hover {
+      background-color: $marine-blue;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+  
+    // Active state
+    &:active {
+      background-color: $dark-blue;
+    }
+  
+    // Disabled state
+    &:disabled {
+      background-color: $light-grey !important;
+      cursor: not-allowed;
+    }
+  
+    // Success state
+    &.success {
+      background-color: $success-green;
+    }
+  
+    // Error state
+    &.error {
+      background-color: $error-red;
+    }
+  }

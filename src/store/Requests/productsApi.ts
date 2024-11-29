@@ -18,7 +18,17 @@ export const productsApi = createApi({
       },
       providesTags: ['products'],
     }),
+    addNewProduct: builder.mutation<any, IProduct>({
+      query(payload) {
+        return {
+          url: `/products`,
+          method: 'POST',
+          body: payload
+        };
+      },
+      invalidatesTags: ['products'],
+    }),
   }),
 });
 
-export const { useGetAllProductsListQuery } = productsApi;
+export const { useGetAllProductsListQuery, useAddNewProductMutation } = productsApi;

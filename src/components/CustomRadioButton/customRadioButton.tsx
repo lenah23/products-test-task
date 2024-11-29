@@ -17,7 +17,7 @@ interface IProps {
   options: IRadioOption[];
   controllerName: string;
   controllerRules: any;
-  errors: FieldErrors<FieldValues>;
+  errors?: FieldErrors<FieldValues>;
   control: Control<FieldValues, any>;
   customRadioClassname?: string;
   defaultValue?: string | number;

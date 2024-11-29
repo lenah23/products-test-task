@@ -1,29 +1,29 @@
-@import '../../styles/mixins';
-@import '../../styles/_variables.scss';
+@import "../../styles/mixins";
+@import "../../styles/_variables.scss";
 
-.products{
+.products {
   padding: 30px;
 }
 
-.products-list{
-   @include flexStyles(flex, row, space-between, flex-start);
-   flex-wrap: wrap;
-   gap: 50px;
+.products-list {
+  @include flexStyles(flex, row, flex-start, flex-start);
+  flex-wrap: wrap;
+  gap: 50px;
 }
 
 .product-item {
   border-radius: 8px;
   border: $dark-grey;
   padding: 20px;
-  @include flexStyles(flex, row, space-between, flex-start);
+  @include flexStyles(flex, row, flex-start, flex-start);
   gap: 20px;
   background: $light-grey;
+  max-width: 300px;
+  min-width: 300px;
 
   &__img-cont {
-    @include sizes(100px, 100px);
-
     .product-item__img {
-      @include sizes(100%, 100%);
+      height: 100px;
       object-fit: contain;
     }
   }
@@ -32,4 +32,16 @@
     @include flexStyles(flex, column, flex-start, flex-start);
     gap: 10px;
   }
+
+  &__description {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+.price-container{
+  @include flexStyles(flex, row, center, center);
+  gap: 30px;
 }
