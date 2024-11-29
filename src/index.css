@@ -4,3 +4,21 @@
   box-sizing: border-box;
   text-decoration: none;
 }
+
+/* Hide arrows in Webkit-based browsers (Chrome, Safari) */
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Hide arrows in Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+/* Optionally, you can add extra styling to remove borders or adjust size */
+input[type='number'] {
+  appearance: none; /* For other browsers that support this */
+  border: 1px solid #ccc; /* Just an example */
+}
