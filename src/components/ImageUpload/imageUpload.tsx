@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Control,
   Controller,
@@ -15,6 +15,7 @@ interface IProps {
   errors: FieldErrors<FieldValues>;
   control: Control<FieldValues, any>;
   customUploadClassname?: string;
+  isSuccess: boolean
 }
 
 const CustomImageUpload: React.FC<IProps> = (props) => {
@@ -25,6 +26,7 @@ const CustomImageUpload: React.FC<IProps> = (props) => {
     errors,
     control,
     customUploadClassname,
+    isSuccess,
   } = props;
 
   const [previewImage, setPreviewImage] = useState<string | null>(null);
@@ -43,6 +45,12 @@ const CustomImageUpload: React.FC<IProps> = (props) => {
     setPreviewImage(null);
     onChange(null);
   };
+
+  useEffect(() => {
+    if (isSuccess) {
+      setPreviewImage(null);
+    }
+  }, [isSuccess]);
 
   return (
     <div className={styles['upload-container']}>

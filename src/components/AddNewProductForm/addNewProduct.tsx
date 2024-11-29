@@ -6,7 +6,7 @@ import UseAddNewProductHooks from './addNewProduct.hooks';
 import styles from './addNewProduct.module.scss';
 
 const AddNewProduct: React.FC = () => {
-  const { handleSubmit, control, onSubmit, errors, isLoading } =
+  const { handleSubmit, control, onSubmit, errors, isLoading, isSuccess } =
     UseAddNewProductHooks();
   return (
     <form
@@ -41,11 +41,12 @@ const AddNewProduct: React.FC = () => {
         placeholder='Description'
       />
       <CustomImageUpload
-        label={'Add an image'}
+        label={'Добавьте картинку'}
         controllerName={'image'}
         controllerRules={{ require: 'Обязательно' }}
         errors={errors}
         control={control}
+        isSuccess={isSuccess}
       />
       <CustomButton
         loading={isLoading}

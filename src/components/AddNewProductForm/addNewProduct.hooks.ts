@@ -18,7 +18,11 @@ const UseAddNewProductHooks = () => {
     formState: { errors },
     control,
     reset,
-  } = useForm<FieldValues | IProductFields>();
+  } = useForm<FieldValues | IProductFields>({
+    defaultValues: {
+      image: null
+    }
+  });
 
   const onSubmit = (data: FieldValues) => {
     const mapImageName = (fileName: string) => {
@@ -31,14 +35,23 @@ const UseAddNewProductHooks = () => {
       image: data?.image?.name ? mapImageName(data.image.name) : '',
       description: data?.productDescription,
     };
-
     addNewProductReq(payload);
   };
+
+   const handleReset = () => {
+     reset({
+       productName: '',
+       productPrice: '',
+       image: null,
+       productDescription: '',
+     });
+  };
+  
 
   useEffect(() => {
     if (isSuccess) {
       toast.success('Product is created successfully');
-      reset();
+      handleReset();
     }
   }, [isSuccess]);
 
@@ -48,6 +61,7 @@ const UseAddNewProductHooks = () => {
     isLoading,
     control,
     errors,
+    isSuccess,
   };
 };
 

@@ -30,5 +30,6 @@
     min-height: 40vh;
     border: 1px solid $light-grey;
     @include flexStyles(flex, row, center, center);
+    padding: 20px 0;
   }
 }
