@@ -1,4 +1,3 @@
-import { resetFilteredProducts, setFilteredProducts } from '../../store/Slices/productsSlice';
 import CustomButton from '../CustomButton/customButton';
 import CustomInput from '../CustomInput/customInput';
 import CustomRadioButton from '../CustomRadioButton/customRadioButton';
@@ -8,14 +7,13 @@ import styles from './products.module.scss';
 
 const ProductFiltration: React.FC = () => {
   const {
-    control,
-    reset,
-    errors,
-    handleSubmit,
-    onSubmit,
     currencyData,
     sortingData,
+    control,
+    errors,
+    onSubmit,
     handleReset,
+    handleSubmit,
   } = UseProductHooks();
 
   return (

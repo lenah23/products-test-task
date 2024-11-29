@@ -1,11 +1,13 @@
-import CustomButton from "../CustomButton/customButton";
-import CustomInput from "../CustomInput/customInput";
-import { ButtonTypeEnum, InputTypeEnum } from "../interfaces";
-import UseAddNewProductHooks from "./addNewProduct.hooks";
-import styles from "./addNewProduct.module.scss";
+import CustomButton from '../CustomButton/customButton';
+import CustomInput from '../CustomInput/customInput';
+import CustomImageUpload from '../ImageUpload/imageUpload';
+import { ButtonTypeEnum, InputTypeEnum } from '../interfaces';
+import UseAddNewProductHooks from './addNewProduct.hooks';
+import styles from './addNewProduct.module.scss';
 
 const AddNewProduct: React.FC = () => {
-  const { handleSubmit, control, onSubmit, errors, isLoading } = UseAddNewProductHooks();
+  const { handleSubmit, control, onSubmit, errors, isLoading } =
+    UseAddNewProductHooks();
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
@@ -38,9 +40,16 @@ const AddNewProduct: React.FC = () => {
         label={'Описание'}
         placeholder='Description'
       />
+      <CustomImageUpload
+        label={'Add an image'}
+        controllerName={'image'}
+        controllerRules={{ require: 'Обязательно' }}
+        errors={errors}
+        control={control}
+      />
       <CustomButton
         loading={isLoading}
-        buttonText={'Add new product'}
+        buttonText={'Добавить картинку'}
         type={ButtonTypeEnum.submit}
       />
     </form>

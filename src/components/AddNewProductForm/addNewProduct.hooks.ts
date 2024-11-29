@@ -1,12 +1,13 @@
-import { useEffect } from "react";
-import { FieldValues, useForm } from "react-hook-form";
-import { toast } from "react-toastify";
-import { useAddNewProductMutation } from "../../store/Requests/productsApi";
+import { useEffect } from 'react';
+import { FieldValues, useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
+import { useAddNewProductMutation } from '../../store/Requests/productsApi';
 
 interface IProductFields {
   productName: string;
   productDescription: string;
   productPrice: number;
+  image: string;
 }
 
 const UseAddNewProductHooks = () => {
@@ -16,23 +17,24 @@ const UseAddNewProductHooks = () => {
     handleSubmit,
     formState: { errors },
     control,
-    reset
+    reset,
   } = useForm<FieldValues | IProductFields>();
 
   const onSubmit = (data: FieldValues) => {
     const payload = {
       name: data?.productName,
       price: data?.productPrice,
-      image: "img1",
-      description: data?.productDescription
+      image: data?.image?.name,
+      description: data?.productDescription,
     };
+
     addNewProductReq(payload);
   };
 
   useEffect(() => {
     if (isSuccess) {
-      toast.success("Product is created successfully");
-      reset()
+      toast.success('Product is created successfully');
+      reset();
     }
   }, [isSuccess]);
 

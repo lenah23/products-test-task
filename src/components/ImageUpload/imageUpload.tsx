@@ -6,7 +6,7 @@ import {
   FieldErrors,
   FieldValues,
 } from 'react-hook-form';
-import styles from './customImageUpload.module.scss';
+import styles from './imageUpload.module.scss';
 
 interface IProps {
   label?: string;
