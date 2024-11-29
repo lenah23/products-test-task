@@ -1,7 +1,7 @@
-import { FieldValues, useForm } from "react-hook-form";
-import { useAddNewProductMutation } from "../../store/Requests/productsApi";
 import { useEffect } from "react";
+import { FieldValues, useForm } from "react-hook-form";
 import { toast } from "react-toastify";
+import { useAddNewProductMutation } from "../../store/Requests/productsApi";
 
 interface IProductFields {
   productName: string;
@@ -38,10 +38,10 @@ const UseAddNewProductHooks = () => {
 
   return {
     handleSubmit,
-    control,
     onSubmit,
-    errors,
     isLoading,
+    control,
+    errors,
   };
 };
 

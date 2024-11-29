@@ -1,3 +1,4 @@
+import { resetFilteredProducts, setFilteredProducts } from '../../store/Slices/productsSlice';
 import CustomButton from '../CustomButton/customButton';
 import CustomInput from '../CustomInput/customInput';
 import CustomRadioButton from '../CustomRadioButton/customRadioButton';
@@ -6,20 +7,19 @@ import UseProductHooks from './productHooks';
 import styles from './products.module.scss';
 
 const ProductFiltration: React.FC = () => {
-  const { control, reset, errors, handleSubmit, onSubmit } = UseProductHooks();
-
-  const currencyData = [
-    { value: 'usd', label: 'USD' },
-    { value: 'uah', label: 'UAH' },
-  ];
-  const sortingData = [
-    { value: 'asc', label: 'По возрастанию цены' },
-    { value: 'desc', label: 'По убыванию цены' },
-    { value: 'alph', label: 'По алфавиту' },
-  ];
+  const {
+    control,
+    reset,
+    errors,
+    handleSubmit,
+    onSubmit,
+    currencyData,
+    sortingData,
+    handleReset,
+  } = UseProductHooks();
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)} style={{ padding: '20px' }}>
       <h2>Цена</h2>
       <div className={styles['price-container']}>
         <CustomInput
@@ -45,7 +45,6 @@ const ProductFiltration: React.FC = () => {
         label={'Валюта'}
         controllerRules={{ required: false }}
         options={currencyData}
-        // defaultValue={currencyData[0]?.value}
       />
       <CustomRadioButton
         control={control}
@@ -53,13 +52,20 @@ const ProductFiltration: React.FC = () => {
         label={'Сортировка'}
         controllerRules={{ required: false }}
         options={sortingData}
-        // defaultValue={currencyData[0]?.value}
       />
-      <CustomButton
-        loading={false}
-        buttonText={'Filter'}
-        type={ButtonTypeEnum.submit}
-      />
+      <div style={{ display: 'flex', gap: '20px' }}>
+        <CustomButton
+          loading={false}
+          buttonText={'Filter'}
+          type={ButtonTypeEnum.submit}
+        />
+        <CustomButton
+          loading={false}
+          buttonText={'Reset filter'}
+          type={ButtonTypeEnum.button}
+          onClick={handleReset}
+        />
+      </div>
     </form>
   );
 };

@@ -1,4 +1,4 @@
-import { IProduct, ProductCurrencyEnum } from '../interfaces';
+import { IProduct } from '../interfaces';
 import ProductItem from './productItem';
 import styles from './products.module.scss';
 

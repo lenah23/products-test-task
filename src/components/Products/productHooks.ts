@@ -1,7 +1,7 @@
+import { useEffect } from 'react';
 import { FieldValues, useForm } from 'react-hook-form';
 import { useGetAllProductsListQuery } from '../../store/Requests/productsApi';
-import { IProduct, ProductCurrencyEnum } from '../interfaces';
-import { useEffect, useMemo, useState } from 'react';
+import { ProductCurrencyEnum } from '../interfaces';
 import { useAppDispatch } from '../../store/store';
 import { setFilteredProducts } from '../../store/Slices/productsSlice';
 
@@ -13,6 +13,15 @@ export interface IFiltration {
 }
 
 const UseProductHooks = () => {
+  const currencyData = [
+    { value: 'usd', label: 'USD' },
+    { value: 'uah', label: 'UAH' },
+  ];
+  const sortingData = [
+    { value: 'asc', label: 'По возрастанию цены' },
+    { value: 'desc', label: 'По убыванию цены' },
+    { value: 'alph', label: 'По алфавиту' },
+  ];
   const { data: productsList } = useGetAllProductsListQuery();
   const dispatch = useAppDispatch();
 
@@ -21,6 +30,7 @@ const UseProductHooks = () => {
     formState: { errors },
     control,
     reset,
+    setValue,
   } = useForm<FieldValues | IFiltration>();
 
   useEffect(() => {
@@ -60,7 +70,6 @@ const UseProductHooks = () => {
         if (sorting === 'asc') return a.price - b.price;
         if (sorting === 'desc') return b.price - a.price;
         if (sorting === 'alph') {
-          // Alphabetic sorting by name
           return a.name.localeCompare(b.name);
         }
         return 0;
@@ -69,12 +78,27 @@ const UseProductHooks = () => {
     dispatch(setFilteredProducts(filtered));
   };
 
+  const handleReset = () => {
+    reset({
+      from: '',
+      to: '',
+      currency: "",
+      sorting: ""
+    });
+    dispatch(setFilteredProducts(productsList!));
+  };
+
   return {
     control,
     reset,
     errors,
     onSubmit,
     handleSubmit,
+    currencyData,
+    sortingData,
+    dispatch,
+    setValue,
+    handleReset,
   };
 };
 
