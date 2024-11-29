@@ -1,5 +1,7 @@
 import CustomButton from '../CustomButton/customButton';
 import CustomInput from '../CustomInput/customInput';
+import CustomRadioButton from '../CustomRadioButton/customRadioButton';
+import { currencyData } from '../data';
 import CustomImageUpload from '../ImageUpload/imageUpload';
 import { ButtonTypeEnum, InputTypeEnum } from '../interfaces';
 import UseAddNewProductHooks from './addNewProduct.hooks';
@@ -39,6 +41,13 @@ const AddNewProduct: React.FC = () => {
         control={control}
         label={'Описание'}
         placeholder='Description'
+      />
+      <CustomRadioButton
+        control={control}
+        controllerName={'currency'}
+        label={'Валюта'}
+        controllerRules={{ required: false }}
+        options={currencyData}
       />
       <CustomImageUpload
         label={'Добавьте картинку'}

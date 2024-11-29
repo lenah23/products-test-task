@@ -9,7 +9,9 @@ interface IProps {
 const ProductList: React.FC<IProps> = (props) => {
   return (
     <div className={styles['products-list']}>
-      {props?.productsList?.map((item: IProduct) => {
+      {props?.productsList?.
+        slice()?.reverse()?.
+        map((item: IProduct) => {
         return (
           <ProductItem
             key={item?.id}

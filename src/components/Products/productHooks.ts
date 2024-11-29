@@ -4,6 +4,7 @@ import { useGetAllProductsListQuery } from '../../store/Requests/productsApi';
 import { ProductCurrencyEnum } from '../interfaces';
 import { useAppDispatch } from '../../store/store';
 import { setFilteredProducts } from '../../store/Slices/productsSlice';
+import { currencyData, sortingData } from '../data';
 
 export interface IFiltration {
   from: number;
@@ -13,15 +14,7 @@ export interface IFiltration {
 }
 
 const UseProductHooks = () => {
-  const currencyData = [
-    { value: 'usd', label: 'USD' },
-    { value: 'uah', label: 'UAH' },
-  ];
-  const sortingData = [
-    { value: 'asc', label: 'По возрастанию цены' },
-    { value: 'desc', label: 'По убыванию цены' },
-    { value: 'alph', label: 'По алфавиту' },
-  ];
+  
   const { data: productsList } = useGetAllProductsListQuery();
   const dispatch = useAppDispatch();
 
@@ -94,8 +87,6 @@ const UseProductHooks = () => {
     errors,
     onSubmit,
     handleSubmit,
-    currencyData,
-    sortingData,
     dispatch,
     setValue,
     handleReset,

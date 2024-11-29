@@ -1,14 +1,13 @@
 import CustomButton from '../CustomButton/customButton';
 import CustomInput from '../CustomInput/customInput';
 import CustomRadioButton from '../CustomRadioButton/customRadioButton';
+import { currencyData, sortingData } from '../data';
 import { ButtonTypeEnum, InputTypeEnum } from '../interfaces';
 import UseProductHooks from './productHooks';
 import styles from './products.module.scss';
 
 const ProductFiltration: React.FC = () => {
   const {
-    currencyData,
-    sortingData,
     control,
     errors,
     onSubmit,

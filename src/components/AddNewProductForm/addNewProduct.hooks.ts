@@ -34,6 +34,7 @@ const UseAddNewProductHooks = () => {
       price: data?.productPrice,
       image: data?.image?.name ? mapImageName(data.image.name) : '',
       description: data?.productDescription,
+      currency: data?.currency
     };
     addNewProductReq(payload);
   };
@@ -44,6 +45,7 @@ const UseAddNewProductHooks = () => {
        productPrice: '',
        image: null,
        productDescription: '',
+       currency: ''
      });
   };
   
